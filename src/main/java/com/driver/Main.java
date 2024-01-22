@@ -11,18 +11,23 @@ public class Main {
         email.changePassword("Acio@123", "V12@v");
         email.changePassword("Accio@123", "V12@v123");
 
-        Gmail gmail = new Gmail("accio@gmail.com", 3);
+        Gmail gmail = new Gmail("accio@gmail.com", 10);
         gmail.receiveMail(new SimpleDateFormat("dd/MM/yyyy").parse("21/12/2022"), "Tushar", "Assignment Completed?");
         gmail.receiveMail(new SimpleDateFormat("dd/MM/yyyy").parse("22/12/2022"), "Tushar", "We are running out of time.");
         gmail.receiveMail(new SimpleDateFormat("dd/MM/yyyy").parse("22/12/2022"), "Abhishek", "Assignment to be uploaded on database.");
         gmail.receiveMail(new SimpleDateFormat("dd/MM/yyyy").parse("23/12/2022"), "Tushar", "Everything looks good.");
+        gmail.receiveMail(new SimpleDateFormat("dd/MM/yyyy").parse("24/12/2022"), "Tushar", "Everything2 looks good.");
+        gmail.receiveMail(new SimpleDateFormat("dd/MM/yyyy").parse("25/12/2022"), "Tushar", "Everything3 looks good.");
+        gmail.receiveMail(new SimpleDateFormat("dd/MM/yyyy").parse("26/12/2022"), "Tushar", "Everything4 looks good.");
 
         System.out.println("Total " + gmail.getInboxSize() + " mails in inbox.");
-        System.out.println("There are " + gmail.findMailsBetweenDates(new SimpleDateFormat("dd/MM/yyyy").parse("21/12/2022"), new SimpleDateFormat("dd/MM/yyyy").parse("22/12/2022")) + " mails between given dates!");
-        gmail.deleteMail("Everything looks good.");
+        System.out.println("There are " + gmail.findMailsBetweenDates(new SimpleDateFormat("dd/MM/yyyy").parse("21/12/2022"), new SimpleDateFormat("dd/MM/yyyy").parse("26/12/2022")) + " mails between given dates!");
+        System.out.println("The latest message is :" + gmail.findLatestMessage());
+        gmail.deleteMail("Everything4 looks good.");
         System.out.println("The latest message is :" + gmail.findLatestMessage());
         gmail.deleteMail("Assignment to be uploaded on database.");
         System.out.println("There are " + gmail.getTrashSize() + " mails in the trash.");
+        System.out.println("The latest message is :" + gmail.findOldestMessage());
         gmail.emptyTrash();
         System.out.println("There are " + gmail.getTrashSize() + " mails in the trash.");
 
